@@ -4,6 +4,7 @@ const randomBtn = document.getElementById('random');
 const resultHeading = document.getElementById('result-heading');
 const foods = document.getElementById('meals');
 const singleMeal = document.getElementById('single-meal');
+const categories = document.getElementById('categories');
 
 
 function addMeals(e) {
@@ -146,7 +147,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 categories.addEventListener('click', (e) => {
     if (e.target.classList.contains('food-category')) {
         console.log(e.target.textContent);
-        resultsHeading.innerHTML = `<h2>Search Results for: ${e.target.textContent}</h2>`;
+        resultHeading.innerHTML = `<h2>Search Results for: ${e.target.textContent}</h2>`;
 
         fetch (`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.textContent}`)
         .then(res => res.json())
