@@ -8,7 +8,7 @@ const singleMeal = document.getElementById('single-meal');
 
 function addMeals(e) {
     e.preventDefault();
-
+    
     singleMeal.innerHTML = "";
 
     const term = input.value;
@@ -115,5 +115,53 @@ foods.addEventListener('click', (e) => {
     if (mealInfo) {
         const mealID = mealInfo.getAttribute('data-mealid');
         getMealById(mealID);
+    }
+})
+
+window.addEventListener('DOMContentLoaded', (e) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+    .then(res => res.json())
+    .then(data => {
+        // console.log(data);
+        if(data.categories !== null) {
+            // categories.innerHTML = ``
+            
+            // console.log(listItems)
+            
+            let foodCat = data.categories.map((cat) => {
+                return `<button class="food-category" href="#">${cat.strCategory}</button>`
+            }).join('');
+            categories.innerHTML = foodCat;
+                
+                // const li = document.createElement('li');
+                // ul.appendChild('li');
+                // const foodCat = document.createElement('a');
+                // li.appendChild(foodCat);
+                // foodCat.textContent = data.categories.strCategory;
+                
+        } 
+    })
+});
+
+categories.addEventListener('click', (e) => {
+    if (e.target.classList.contains('food-category')) {
+        console.log(e.target.textContent);
+        resultsHeading.innerHTML = `<h2>Search Results for: ${e.target.textContent}</h2>`;
+
+        fetch (`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.textContent}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            foods.innerHTML = data.meals.map((meal) => {
+                    return `<div class="meal">
+                        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                        <div class="meal-info" data-mealID="${meal.idMeal}">
+                            <h3>${meal.strMeal}</h3>
+                        </div>
+                    </div>`
+                }).join('');
+
+            
+        })
     }
 })
