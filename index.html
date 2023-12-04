@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <title>Recipe Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recipe Ideas Generator</h1>
+        <p class="description">Let's get cooking! What are you craving?</p>
+        <div class="flex">
+            <form class="flex" id="form">
+                <input id="search" placeholder="Search for meals or keywords" type="text">
+                <button class="search-btn" id="search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button class="random-btn" id="random">
+                <!-- Surprise Me -->
+                <i class="fas fa-random"></i>
+            </button>
+        </div>
+
+        <div id="result-heading"></div>
+        <div id="meals" class="meals">
+            <!-- <div class="meal">
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                <div class="meal-info" data-mealID="${meal.idMeal}">
+                    <h3>${meal.strMeal}</h3>
+                </div>
+            </div> -->
+        </div>
+        <div id="single-meal"></div>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
