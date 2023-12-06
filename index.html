@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,32 +9,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
     <title>Recipe Generator</title>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
             <a href="https://giphy.com/gifs/cooking-mama-wii-psqPGTNGDfTD6GDPQt" title="cooking mama GIF" target="_blank">
-                <img class="cooking-mama" src="images/giphy.gif" width="100px" alt="cooking mama flipping a pancake GIF"></a>
+                <img class="cooking-mama" src="giphy.gif" width="100px" alt="cooking mama flipping a pancake GIF"></a>
             <h1>Recipe Ideas Generator</h1>
             <p class="description">Let's get cooking! What are you craving?</p>
         </div>
-        <div id="categories" class="categories">
-
+        <div id="category-btns" class="category-btns">
+            <!-- <button class="food-category">
+                Chicken
+            </button> -->
         </div>
-
         <div class="flex">
-            <form class="flex" id="form">
+            <form class="flex" id="form"> 
                 <input id="search" placeholder="Search for meals or keywords" type="text">
-                <button class="search-btn" id="search-btn" type="submit">
+                <button class="search-btn" id="search-btn" type="submit"> 
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="random-btn" id="random">
+            <button class="random-btn" id="random"> 
                 <!-- Surprise Me -->
                 <i class="fas fa-random"></i>
             </button>
         </div>
-
+        
         <div id="result-heading"></div>
         <div id="meals" class="meals">
             <!-- <div class="meal">
@@ -45,11 +44,24 @@
                 </div>
             </div> -->
         </div>
-        <div id="single-meal"></div>
+        <div id="single-meal" class="single-meal">
+                <!-- <h1>${meal.strMeal}</h1>
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                <div class="single-meal-info">
+                    ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
+                    ${meal.strArea ? `<p>${meal.strArea}</p>` : ''}
+                </div>
+                <div class="main">
+                    <p>${meal.strInstructions}</p>
+                    <h2>Ingredients</h2>
+                    <ul>
+                        ${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                    </ul>
+                </div>
+            </div> -->
     </div>
 
     <script src="script.js">
     </script>
 </body>
-
 </html>
